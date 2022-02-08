@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/usk
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        ddl-auto: none
+        naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    show-sql: true
+    database: mysql
+    hibernate:
+      ddl-auto: none
+  cache:
+    type: redis
+    cache-names: country
+    redis:
+      time-to-live: 600000
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+# HTTP Server
+server:
+  port: 7071
+  servlet:
+    context-path: /redisdemo
+
+management:
+  security:
+    enabled: false
